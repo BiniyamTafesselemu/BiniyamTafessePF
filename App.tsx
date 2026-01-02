@@ -1,11 +1,11 @@
 import './App.css'
 import Navbar from './components/Navbar'
 import Contact from './pages/Contact'
-import Resume from './pages/Resume'
 import Work from './pages/Work'
 import Experience from './pages/Experience'
 import About from './pages/About'
-import Home from './pages/Home'
+
+// import Home from './pages/Home'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Footer from './components/Footer'
 
@@ -20,11 +20,10 @@ function App() {
         {/* This div will grow and push the footer down */}
         <main className="flex-grow">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<About />} />
+            {/* <Route path="/home" element={<About />} /> */}
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/resume" element={<Resume />} />
             <Route path="/work" element={<Work />} />
             <Route path="/experience" element={<Experience />} />
           </Routes>

@@ -12,7 +12,7 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Biniyam Tafesse - Backend & Frontend Developer",
+  title: "Biniyam Tafesse - Software Developer",
   description:
     "Professional portfolio showcasing skills in fullstack development, backend engineering, and frontend design.",
   generator: "v0.app",
@@ -20,25 +20,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Biniyam Tafesse - Backend & Frontend Developer",
     description: "Professional portfolio showcasing fullstack development expertise",
-    url: "https://biniyam.dev",
+    url: "https://github.com/BiniyamTafesselemu/BiniyamTafessePF/tree/main",
     type: "website",
   },
   icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
-    apple: "/apple-icon.png",
+    icon: "/inst.jpg",
+    apple: "/inst.jpg",
   },
 }
 

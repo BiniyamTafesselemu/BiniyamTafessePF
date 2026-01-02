@@ -1,0 +1,8 @@
+# Ignore environment variable files
+.env
+# .env.local
+# Ignore Next.js build artifacts
+.next/
+
+# Ignore other common files
+node_modules/

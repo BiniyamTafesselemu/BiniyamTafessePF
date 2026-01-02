@@ -1,0 +1,103 @@
+@import "tailwindcss";
+/* @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Michroma&display=swap'); */
+
+@keyframes rotate {
+  0% {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  25% {
+    transform: perspective(1000px) rotateY(30deg); /* Rightmost angle */
+  }
+  50% {
+    transform: perspective(1000px) rotateY(0deg); /* Back to center */
+  }
+  75% {
+    transform: perspective(1000px) rotateY(-30deg); /* Leftmost angle */
+  }
+  100% {
+    transform: perspective(1000px) rotateY(0deg); /* Back to center */
+  }
+}
+
+.animate-rotate {
+  animation: rotate 9s ease-in-out infinite;
+}
+
+@keyframes rotate-shadow {
+  0% {
+    transform: translateY(2px) rotateY(0deg);
+  }
+  25% {
+    transform: translateY(2px) rotateY(50deg);
+  }
+  50% {
+    transform: translateY(2px) rotateY(0deg);
+  }
+  75% {
+    transform: translateY(2px) rotateY(-50deg);
+  }
+  100% {
+    transform: translateY(2px) rotateY(0deg);
+  }
+}
+
+.animate-rotate-shadow {
+  animation: rotate-shadow 9s ease-in-out infinite;
+}
+
+/* ========================================= */
+/* EXISTING SECTION FROM YOUR INPUT */
+/* ========================================= */
+
+/* Existing animation for Welcome message */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  /* CHANGED: Removed 'forwards' and added 'infinite' and 'alternate' */
+  animation: fadeIn 1.5s ease-out infinite alternate; /* This will make it fade in and out continuously */
+  /* If you just want it to loop the fade-in and then jump back, use: animation: fadeIn 1.5s ease-out infinite; */
+}
+
+/* Rainbow Text Style for Welcome Message */
+.rainbow-text {
+  /* For browsers that support text-fill-color */
+  background: linear-gradient(to right,
+              #ff0000,
+              #ff7f00,
+              #ffff00,
+              #00ff00,
+              #0000ff,
+              #4b0082,
+              #9400d3
+            );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* Apply the font family for the welcome message */
+  font-family: 'Permanent Marker', cursive;
+  font-weight: 400;
+}
+
+/* Custom font and thin weight for description paragraphs */
+.description-font {
+  /* Apply the SAME font family as the welcome message */
+  font-family: 'Permanent Marker', cursive;
+  font-weight: 400;
+}
+
+/* ========================================= */
+/* END OF MODIFIED SECTION FOR index.css */
+/* ========================================= */
+
+.static-rotate {
+  transform: perspective(1000px) rotateY(-25deg); /* Rotate to leftmost angle */
+}

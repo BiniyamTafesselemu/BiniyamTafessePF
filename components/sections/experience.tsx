@@ -9,7 +9,7 @@ const experiences = [
     company: "Softnet Solutions",
     period: "Jun 2024 - Sep 2024",
     description:
-      "Developed and maintained scalable web applications using React and Express.js; implemented RESTful APIs and collaborated with cross-functional teams to deliver high-quality solutions.",
+      "built using React, Express, and MySQL, generates timetable schedules for Kindergarten to Preparatory schools by intelligently considering various factors such as teacher availability, class availability, sections within each class, and the number of students per class. By effectively managing these elements, the scheduler streamlines the scheduling process, ensuring optimal class assignments and enhancing the educational experience for both teachers and students.",
     achievements: [
       "Developed and maintained scalable web applications (React & Express.js)",
       "Collaborated with cross-functional teams to define requirements and deliver high-quality solutions",

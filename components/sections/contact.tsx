@@ -27,15 +27,6 @@ export default function Contact() {
     setIsLoading(true)
     setFeedback(null)
 
-    // Validate phone number format
-    const phoneRegex = /^\+?[0-9]{10,}$/; // Allows a plus sign followed by at least 10 digits
-
-    if (formData.phone && !phoneRegex.test(formData.phone)) {
-      setFeedback({ type: "error", message: "Phone number must be in a valid format (e.g., +251932460466)." });
-      setIsLoading(false);
-      return;
-    }
-
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -150,7 +141,7 @@ export default function Contact() {
                 value={formData.phone}
                 onChange={handleChange}
                 className="w-full px-4 py-2 bg-input border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
-                placeholder="+251932460466"
+                placeholder="Enter your phone number"
               />
             </div>
           </div>

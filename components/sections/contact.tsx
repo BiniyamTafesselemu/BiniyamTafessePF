@@ -27,6 +27,15 @@ export default function Contact() {
     setIsLoading(true)
     setFeedback(null)
 
+    // Validate phone number format
+    const phoneRegex = /^\+?[0-9]{10,}$/; // Allows a plus sign followed by at least 10 digits
+
+    if (formData.phone && !phoneRegex.test(formData.phone)) {
+      setFeedback({ type: "error", message: "Phone number must be in a valid format (e.g., +251932460466)." });
+      setIsLoading(false);
+      return;
+    }
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -73,7 +82,6 @@ export default function Contact() {
             viewport={{ once: true }}
             className="hidden lg:flex justify-center lg:-ml-76"
           >
-            {/* The icon is now much larger and part of the grid flow */}
             <Send size={250} className="text-primary/10" />
             <Send size={350} className="text-primary/10" />
           </motion.div>
@@ -142,7 +150,7 @@ export default function Contact() {
                 value={formData.phone}
                 onChange={handleChange}
                 className="w-full px-4 py-2 bg-input border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
-                placeholder="+1 (555) 000-0000"
+                placeholder="+251932460466"
               />
             </div>
           </div>

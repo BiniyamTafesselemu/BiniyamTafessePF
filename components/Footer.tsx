@@ -64,7 +64,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="flex ml-120 gap-x-12 text-1xl"
+            className="flex justify-center gap-x-12 text-xl"
           >
             {socialLinks.map((link) => (
               <motion.a
@@ -81,8 +81,18 @@ export default function Footer() {
             ))}
           </motion.div>
 
-          {/* Empty div for spacing on the right */}
-          <div className="hidden md:block"></div>
+          {/* Email (Right) */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="flex items-center justify-center md:justify-end"
+          >
+            <a href="mailto:biniyamtafesse228@gmail.com" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+              biniyamtafesse228@gmail.com
+            </a>
+          </motion.div>
         </div>
 
         {/* Copyright (Centered Bottom) */}

@@ -4,6 +4,21 @@ import { motion } from "framer-motion"
 import { Briefcase, Calendar } from "lucide-react"
 
 const experiences = [
+   {
+    role: "Fullstack Developer",
+    company: "ASTU",
+    period: "Jun 2025 - Sep 2025",
+    description:
+      "This system, built with React, Express.js, and PostgreSQL, features four portals for the education bureau, teachers, schools, and the public. Deployed on cPanel, it efficiently manages teacher recruitment, circulation, and retirement processes in compliance with Addis Ababa Education Bureau regulations.",
+    achievements: [
+  "Developed and maintained scalable web applications (React & Express.js)",
+  "Collaborated with cross-functional teams to define requirements and deliver high-quality solutions",
+  "Implemented RESTful APIs to enhance functionality and user experience",
+  "Deployed applications on cPanel and Azure for robust performance and scalability",
+  "Enhanced application security through input field sanitization and the use of Express Validator"
+],
+
+  },
   {
     role: "Backend and Frontend Developer",
     company: "Softnet Solutions",

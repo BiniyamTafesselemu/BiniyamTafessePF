@@ -29,7 +29,7 @@ const skills = [
 
 const visualAssets = [
   {
-    title: "My Portfolio",
+    title: "Tempo",
     imageSrc: "/tempo.PNG",
     pdfUrl: "/tempo.pdf",
     downloadName: "tempo.pdf",

@@ -23,10 +23,6 @@ export const metadata: Metadata = {
     url: "https://github.com/BiniyamTafesselemu/BiniyamTafessePF/tree/main",
     type: "website",
   },
-  icons: {
-    icon: "/inst.jpg",
-    apple: "/inst.jpg",
-  },
 }
 
 export default function RootLayout({

@@ -27,6 +27,15 @@ export default function Contact() {
     setIsLoading(true)
     setFeedback(null)
 
+    // Updated phone number validation to allow spaces
+    const phoneRegex = /^\+?[0-9\s]{10,}$/; // Allows a '+' followed by at least 10 digits and spaces
+
+    if (formData.phone && !phoneRegex.test(formData.phone)) {
+      setFeedback({ type: "error", message: "Phone number must be in a valid format (e.g., +251 912 324 389) and have at least 10 digits." });
+      setIsLoading(false);
+      return;
+    }
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -115,86 +124,86 @@ export default function Contact() {
               />
             </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="telegram" className="block text-sm font-medium mb-2">
+                  Telegram Username
+                </label>
+                <input
+                  type="text"
+                  id="telegram"
+                  name="telegram"
+                  value={formData.telegram}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 bg-input border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
+                  placeholder="@username"
+                />
+              </div>
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium mb-2">
+                  Phone (Optional)
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 bg-input border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
+                  placeholder="Enter your phone number"
+                />
+              </div>
+            </div>
+
             <div>
-              <label htmlFor="telegram" className="block text-sm font-medium mb-2">
-                Telegram Username
+              <label htmlFor="message" className="block text-sm font-medium mb-2">
+                Message *
               </label>
-              <input
-                type="text"
-                id="telegram"
-                name="telegram"
-                value={formData.telegram}
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
                 onChange={handleChange}
-                className="w-full px-4 py-2 bg-input border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
-                placeholder="@username"
+                required
+                rows={5}
+                className="w-full px-4 py-2 bg-input border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-colors resize-none"
+                placeholder="Tell me about your project..."
               />
             </div>
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                Phone (Optional)
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full px-4 py-2 bg-input border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
-                placeholder="Enter your phone number"
-              />
-            </div>
-          </div>
 
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium mb-2">
-              Message *
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              rows={5}
-              className="w-full px-4 py-2 bg-input border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-colors resize-none"
-              placeholder="Tell me about your project..."
-            />
-          </div>
-
-          {feedback && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className={`p-4 rounded-lg ${
-                feedback.type === "success"
-                  ? "bg-green-500/10 text-green-400 border border-green-500/20"
-                  : "bg-red-500/10 text-red-400 border border-red-500/20"
-              }`}
-            >
-              {feedback.message}
-            </motion.div>
-          )}
-
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            type="submit"
-            disabled={isLoading}
-            className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
-          >
-            {isLoading ? (
-              <>
-                <Loader2 size={20} className="animate-spin" />
-                Sending...
-              </>
-            ) : (
-              <>
-                <Mail size={20} />
-                Send Message
-              </>
+            {feedback && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={`p-4 rounded-lg ${
+                  feedback.type === "success"
+                    ? "bg-green-500/10 text-green-400 border border-green-500/20"
+                    : "bg-red-500/10 text-red-400 border border-red-500/20"
+                }`}
+              >
+                {feedback.message}
+              </motion.div>
             )}
-          </motion.button>
+
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              type="submit"
+              disabled={isLoading}
+              className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+            >
+              {isLoading ? (
+                <>
+                  <Loader2 size={20} className="animate-spin" />
+                  Sending...
+                </>
+              ) : (
+                <>
+                  <Mail size={20} />
+                  Send Message
+                </>
+              )}
+            </motion.button>
           </motion.form>
         </div>
       </motion.div>
